@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Fitness Theme Colors -->
+    <color name="fitness_primary">#FF6B35</color>
+    <color name="fitness_primary_dark">#E85A2A</color>
+    <color name="fitness_accent">#FFA726</color>
+    <color name="fitness_background">#1A1A1A</color>
+    <color name="fitness_surface">#2D2D2D</color>
+    <color name="fitness_text_primary">#FFFFFF</color>
+    <color name="fitness_text_secondary">#B0B0B0</color>
+    <color name="fitness_error">#FF5252</color>
+    <color name="fitness_success">#4CAF50</color>
+    <color name="fitness_gradient_start">#FF6B35</color>
+    <color name="fitness_gradient_end">#FFA726</color>
+    
+    <!-- Organic/Green Theme Colors -->
+    <color name="organic_primary">#2D5F3F</color>
+    <color name="organic_primary_light">#4A8B5C</color>
+    <color name="organic_accent">#7FB069</color>
+    <color name="organic_background">#F8F9F5</color>
+    <color name="organic_surface">#FFFFFF</color>
+    <color name="organic_card_bg">#FAFBF8</color>
+    <color name="organic_text_primary">#1F2937</color>
+    <color name="organic_text_secondary">#6B7280</color>
+    <color name="organic_border">#E5E7EB</color>
+</resources>

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/organic_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Green Header Background -->
+        <View
+            android:id="@+id/headerBackground"
+            android:layout_width="0dp"
+            android:layout_height="240dp"
+            android:background="@drawable/bg_header_organic"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Logo/Icon -->
+        <TextView
+            android:id="@+id/tvLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍃"
+            android:textSize="64sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_title"
+            android:textColor="@color/white"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tvLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_subtitle"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:alpha="0.9"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Signup Card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="200dp"
+            app:cardBackgroundColor="@color/organic_surface"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="28dp">
+
+                <!-- Nom Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nom"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilNom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etNom"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/nom_hint"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvNomError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Prenom Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prénom"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPrenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPrenom"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/prenom_hint"
+                        android:inputType="textPersonName"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPrenomError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Phone Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Téléphone"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/phone_hint"
+                        android:inputType="phone"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPhoneError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Email Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/email_hint"
+                        android:inputType="textEmailAddress"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvEmailError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Password Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mot de passe"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false"
+                    app:passwordToggleEnabled="true"
+                    app:passwordToggleTint="@color/organic_text_secondary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/password_hint"
+                        android:inputType="textPassword"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPasswordError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Date Input -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date de naissance"
+                    android:textColor="@color/organic_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundMode="outline"
+                    app:boxStrokeColor="@color/organic_primary"
+                    app:boxCornerRadiusTopStart="12dp"
+                    app:boxCornerRadiusTopEnd="12dp"
+                    app:boxCornerRadiusBottomStart="12dp"
+                    app:boxCornerRadiusBottomEnd="12dp"
+                    app:hintEnabled="false">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:hint="@string/date_naissance_hint"
+                        android:inputType="date"
+                        android:focusable="false"
+                        android:clickable="true"
+                        android:textColor="@color/organic_text_primary"
+                        android:textColorHint="@color/organic_text_secondary" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/tvDateError"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/fitness_error"
+                    android:textSize="12sp"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone" />
+
+                <!-- Signup Button -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSignup"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:text="@string/signup_button"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:background="@drawable/bg_button_green"
+                    android:layout_marginTop="28dp"
+                    app:backgroundTint="@null"
+                    app:cornerRadius="12dp" />
+
+                <!-- Progress Bar -->
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:visibility="gone"
+                    android:indeterminateTint="@color/organic_primary" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Login Link -->
+        <LinearLayout
+            android:id="@+id/llLoginLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
+            app:layout_constraintTop_toBottomOf="@id/cardSignup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/already_account"
+                android:textColor="@color/organic_text_secondary"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvLoginLink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_link"
+                android:textColor="@color/organic_primary"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginStart="4dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
