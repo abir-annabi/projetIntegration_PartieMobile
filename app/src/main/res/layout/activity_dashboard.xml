@@ -41,11 +41,11 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🍃"
-                android:textSize="28sp" />
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/applesplash"
+                android:contentDescription="Logo" />
         </LinearLayout>
 
         <!-- Welcome -->
@@ -110,11 +110,11 @@
                     android:padding="20dp"
                     android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="🥗"
-                        android:textSize="48sp" />
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/platsicon"
+                        android:contentDescription="Plats" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -166,11 +166,11 @@
                     android:padding="20dp"
                     android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="💪"
-                        android:textSize="48sp" />
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/programmeicon"
+                        android:contentDescription="Programmes" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -222,11 +222,11 @@
                     android:padding="20dp"
                     android:gravity="center_vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="📊"
-                        android:textSize="48sp" />
+                    <ImageView
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:src="@drawable/mesprogrammesicon"
+                        android:contentDescription="Mes Programmes" />
 
                     <LinearLayout
                         android:layout_width="0dp"

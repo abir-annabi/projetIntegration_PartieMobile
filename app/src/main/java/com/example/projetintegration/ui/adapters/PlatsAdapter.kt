@@ -33,20 +33,23 @@ class PlatsAdapter(
             binding.tvNom.text = plat.nom
             binding.tvCalories.text = "${plat.calories} cal"
             binding.tvTemps.text = "⏱️ ${plat.tempsPreparation} min"
-            binding.tvCategorie.text = getCategorieEmoji(plat.categorie)
+            
+            // Définir l'image selon la catégorie
+            val imageRes = getCategorieImage(plat.categorie)
+            binding.ivPlatImage.setImageResource(imageRes)
             
             binding.root.setOnClickListener {
                 onPlatClick(plat)
             }
         }
         
-        private fun getCategorieEmoji(categorie: String): String {
+        private fun getCategorieImage(categorie: String): Int {
             return when (categorie) {
-                "petit-dejeuner" -> "🌅"
-                "dejeuner" -> "🍽️"
-                "diner" -> "🌙"
-                "collation" -> "🍎"
-                else -> "🍴"
+                "petit-dejeuner" -> com.example.projetintegration.R.drawable.omelette
+                "dejeuner" -> com.example.projetintegration.R.drawable.plat_meat
+                "diner" -> com.example.projetintegration.R.drawable.tacos
+                "collation" -> com.example.projetintegration.R.drawable.applesplash
+                else -> com.example.projetintegration.R.drawable.vegetables
             }
         }
     }

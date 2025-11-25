@@ -14,14 +14,15 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Emoji Catégorie -->
-        <TextView
-            android:id="@+id/tvCategorie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🍽️"
-            android:textSize="40sp"
-            android:layout_gravity="center" />
+        <!-- Image du plat -->
+        <ImageView
+            android:id="@+id/ivPlatImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/vegetables"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:contentDescription="Image du plat" />
 
         <!-- Nom du plat -->
         <TextView

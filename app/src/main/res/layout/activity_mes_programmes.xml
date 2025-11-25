@@ -37,11 +37,11 @@
             android:textStyle="bold"
             android:layout_marginStart="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="📊"
-            android:textSize="28sp" />
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/mesprogrammesicon"
+            android:contentDescription="Mes Programmes" />
     </LinearLayout>
 
     <!-- Empty State -->

@@ -32,11 +32,13 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="🍽️"
-            android:textSize="80sp"
+        <ImageView
+            android:id="@+id/ivPlatImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/vegetables"
+            android:scaleType="centerCrop"
+            android:contentDescription="Image du plat"
             app:layout_constraintTop_toTopOf="@id/headerBackground"
             app:layout_constraintBottom_toBottomOf="@id/headerBackground"
             app:layout_constraintStart_toStartOf="parent"
