@@ -37,4 +37,27 @@
     <!-- Dashboard -->
     <string name="welcome_message">Bienvenue, %s !</string>
     <string name="logout">Déconnexion</string>
+    
+    <!-- Profile -->
+    <string-array name="sexe_options">
+        <item>Sélectionner</item>
+        <item>Homme</item>
+        <item>Femme</item>
+    </string-array>
+    
+    <string-array name="objectif_options">
+        <item>Sélectionner</item>
+        <item>Perte de poids</item>
+        <item>Prise de masse</item>
+        <item>Maintien</item>
+    </string-array>
+    
+    <string-array name="niveau_activite_options">
+        <item>Sélectionner</item>
+        <item>Sédentaire</item>
+        <item>Léger</item>
+        <item>Modéré</item>
+        <item>Intense</item>
+        <item>Très intense</item>
+    </string-array>
 </resources>

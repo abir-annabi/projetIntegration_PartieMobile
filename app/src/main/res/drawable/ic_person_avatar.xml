@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="@color/organic_primary_light"
+        android:pathData="M60,60m-60,0a60,60 0,1 1,120 0a60,60 0,1 1,-120 0" />
+    
+    <!-- Person icon -->
+    <group android:translateX="30" android:translateY="25">
+        <!-- Head -->
+        <path
+            android:fillColor="@color/white"
+            android:pathData="M30,15 C30,6.7 23.3,0 15,0 C6.7,0 0,6.7 0,15 C0,23.3 6.7,30 15,30 C23.3,30 30,23.3 30,15 Z" />
+        
+        <!-- Body -->
+        <path
+            android:fillColor="@color/white"
+            android:pathData="M45,70 C45,55 35,45 15,45 C-5,45 -15,55 -15,70 L45,70 Z" />
+    </group>
+</vector>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="35dp"
+    android:height="35dp"
+    android:viewportWidth="35"
+    android:viewportHeight="35">
+    
+    <!-- Grapes -->
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M17.5,5 C20.26,5 22.5,7.24 22.5,10 C22.5,12.76 20.26,15 17.5,15 C14.74,15 12.5,12.76 12.5,10 C12.5,7.24 14.74,5 17.5,5 Z" />
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M12,11 C14.76,11 17,13.24 17,16 C17,18.76 14.76,21 12,21 C9.24,21 7,18.76 7,16 C7,13.24 9.24,11 12,11 Z" />
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M23,11 C25.76,11 28,13.24 28,16 C28,18.76 25.76,21 23,21 C20.24,21 18,18.76 18,16 C18,13.24 20.24,11 23,11 Z" />
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M17.5,17 C20.26,17 22.5,19.24 22.5,22 C22.5,24.76 20.26,27 17.5,27 C14.74,27 12.5,24.76 12.5,22 C12.5,19.24 14.74,17 17.5,17 Z" />
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M17.5,24 C19.71,24 21.5,25.79 21.5,28 C21.5,30.21 19.71,32 17.5,32 C15.29,32 13.5,30.21 13.5,28 C13.5,25.79 15.29,24 17.5,24 Z" />
+        
+</vector>

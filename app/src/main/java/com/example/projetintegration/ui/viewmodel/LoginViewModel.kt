@@ -11,7 +11,7 @@ import com.example.projetintegration.utils.ValidationUtils
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
-    
+    //gérer la logique métie
     private val repository = AuthRepository()
     
     private val _loginResult = MutableLiveData<Result<AuthenticationResponse>>()
@@ -33,7 +33,12 @@ class LoginViewModel : ViewModel() {
         
         _isLoading.value = true
         viewModelScope.launch {
-            val request = AuthenticationRequest(email, password)
+            val request = AuthenticationRequest(
+                adresseEmail = email,
+                motDePasse = password
+            )
+            android.util.Log.d("LoginViewModel", "Tentative de connexion avec email: $email")
+            android.util.Log.d("LoginViewModel", "Request créé: adresseemail=${request.adresseEmail}, mdp=${request.motDePasse.take(3)}...")
             val result = repository.authentification(request)
             _loginResult.value = result
             _isLoading.value = false

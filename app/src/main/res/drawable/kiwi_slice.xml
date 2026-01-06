@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+    
+    <!-- Outer ring -->
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M30,2 C44.36,2 58,15.64 58,30 C58,44.36 44.36,58 30,58 C15.64,58 2,44.36 2,30 C2,15.64 15.64,2 30,2 Z" />
+    
+    <!-- Inner flesh -->
+    <path
+        android:fillColor="#CDDC39"
+        android:pathData="M30,10 C41.05,10 50,18.95 50,30 C50,41.05 41.05,50 30,50 C18.95,50 10,41.05 10,30 C10,18.95 18.95,10 30,10 Z" />
+    
+    <!-- Center -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,22 C34.42,22 38,25.58 38,30 C38,34.42 34.42,38 30,38 C25.58,38 22,34.42 22,30 C22,25.58 25.58,22 30,22 Z" />
+    
+    <!-- Seeds -->
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M30,21 C30.55,21 31,21.45 31,22 C31,22.55 30.55,23 30,23 C29.45,23 29,22.55 29,22 C29,21.45 29.45,21 30,21 Z" />
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M26,29 C26.55,29 27,29.45 27,30 C27,30.55 26.55,31 26,31 C25.45,31 25,30.55 25,30 C25,29.45 25.45,29 26,29 Z" />
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M34,29 C34.55,29 35,29.45 35,30 C35,30.55 34.55,31 34,31 C33.45,31 33,30.55 33,30 C33,29.45 33.45,29 34,29 Z" />
+    <path
+        android:fillColor="#4CAF50"
+        android:pathData="M30,37 C30.55,37 31,37.45 31,38 C31,38.55 30.55,39 30,39 C29.45,39 29,38.55 29,38 C29,37.45 29.45,37 30,37 Z" />
+        
+</vector>

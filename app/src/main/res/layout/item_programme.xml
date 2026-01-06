@@ -3,95 +3,185 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardBackgroundColor="@color/organic_surface"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp">
+    android:layout_margin="12dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:orientation="vertical">
 
-        <!-- Nom du programme -->
-        <TextView
-            android:id="@+id/tvNom"
+        <!-- Programme Image with Favorite Button -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Programme Nom"
-            android:textColor="@color/organic_text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_height="200dp">
 
-        <!-- Description -->
-        <TextView
-            android:id="@+id/tvDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description du programme"
-            android:textColor="@color/organic_text_secondary"
-            android:textSize="14sp"
-            android:layout_marginTop="8dp"
-            android:maxLines="2"
-            android:ellipsize="end" />
+            <ImageView
+                android:id="@+id/ivProgrammeImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/programme1"
+                android:contentDescription="Image du programme" />
 
-        <!-- Info Row -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="16dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/tvDuree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📅 30 jours"
-                android:textColor="@color/organic_text_primary"
-                android:textSize="12sp"
-                android:background="@color/organic_card_bg"
-                android:padding="8dp" />
-
-            <TextView
-                android:id="@+id/tvObjectif"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎯 Perte de poids"
-                android:textColor="@color/organic_text_primary"
-                android:textSize="12sp"
-                android:background="@color/organic_card_bg"
+            <!-- Favorite Button -->
+            <ImageButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="12dp"
+                android:background="@drawable/bg_button_green"
+                android:contentDescription="Ajouter aux favoris"
                 android:padding="8dp"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
+                android:src="@drawable/ic_heart_outline"
+                app:tint="@color/white" />
+        </FrameLayout>
 
-        <!-- Counts Row -->
+        <!-- Content Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp">
+            android:orientation="vertical"
+            android:padding="20dp">
 
+            <!-- Nom du programme -->
             <TextView
-                android:id="@+id/tvPlatsCount"
-                android:layout_width="0dp"
+                android:id="@+id/tvNom"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="🍽️ 15 plats"
-                android:textColor="@color/organic_primary"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:text="Programme Nom"
+                android:textColor="@color/organic_text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center" />
 
+            <!-- Description -->
             <TextView
-                android:id="@+id/tvActivitesCount"
-                android:layout_width="0dp"
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="💪 10 activités"
-                android:textColor="@color/organic_primary"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:text="Description du programme"
+                android:textColor="@color/organic_text_secondary"
+                android:textSize="15sp"
+                android:layout_marginTop="8dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp" />
+
+            <!-- Info Pills Container -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvDuree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📅 30 jours"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_green"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvObjectif"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎯 Perte de poids"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bg_button_green"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp" />
+            </LinearLayout>
+
+            <!-- Stats Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvPlatsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textColor="@color/organic_primary_bright"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plats"
+                        android:textColor="@color/organic_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:background="@color/organic_primary_bright"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/tvActivitesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="@color/organic_primary_bright"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Activités"
+                        android:textColor="@color/organic_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Action Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCommencer"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Commencer"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_button_green"
+                android:layout_marginTop="20dp"
+                app:backgroundTint="@null"
+                app:cornerRadius="24dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

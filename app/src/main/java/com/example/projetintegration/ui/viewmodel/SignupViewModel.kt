@@ -52,7 +52,14 @@ class SignupViewModel : ViewModel() {
         
         _isLoading.value = true
         viewModelScope.launch {
-            val request = InscriptionRequest(nom, prenom, phone, email, password, dateNaissance)
+            val request = InscriptionRequest(
+                nom = nom,
+                prenom = prenom,
+                numtel = phone,
+                adresseemail = email,
+                mdp = password,
+                dateNaissance = dateNaissance
+            )
             val result = repository.inscription(request)
             _signupResult.value = result
             _isLoading.value = false
@@ -87,7 +94,7 @@ class SignupViewModel : ViewModel() {
             _phoneError.value = "Ce champ est obligatoire"
             isValid = false
         } else if (!ValidationUtils.isValidPhone(phone)) {
-            _phoneError.value = "Numéro de téléphone invalide (format: 06XXXXXXXX)"
+            _phoneError.value = "Numéro de téléphone invalide (format: XXXXXXXX)"
             isValid = false
         } else {
             _phoneError.value = null

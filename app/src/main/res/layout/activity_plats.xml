@@ -1,146 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/organic_background">
+    android:background="@color/modern_background">
 
-    <!-- Header -->
-    <LinearLayout
-        android:id="@+id/header"
-        android:layout_width="0dp"
+    <!-- App Bar with modern design -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        android:gravity="center_vertical"
-        android:background="@drawable/bg_header_organic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_revert"
-            android:tint="@color/white"
-            android:contentDescription="Retour" />
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/primary_gradient_start"
+            app:expandedTitleMarginStart="20dp"
+            app:expandedTitleMarginBottom="20dp">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nos Plats"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginStart="16dp" />
+            <!-- Background gradient -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/gradient_primary_modern"
+                app:layout_collapseMode="parallax" />
 
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/platsicon"
-            android:contentDescription="Plats" />
-    </LinearLayout>
+            <!-- Header content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp"
+                app:layout_collapseMode="parallax">
 
-    <!-- Filters -->
-    <HorizontalScrollView
-        android:id="@+id/filtersScroll"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🍽️"
+                    android:textSize="48sp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Découvrez nos Plats"
+                    android:textColor="@android:color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Des recettes saines et délicieuses"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:alpha="0.9"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:titleTextColor="@android:color/white" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnAll"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Tous"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="20dp"
-                android:layout_marginEnd="8dp" />
+            <!-- Search and Filter Section -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@android:color/white">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPetitDejeuner"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Petit-déj"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="20dp"
-                android:layout_marginEnd="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDejeuner"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Déjeuner"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="20dp"
-                android:layout_marginEnd="8dp" />
+                    <!-- Search Bar -->
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        app:boxBackgroundMode="filled"
+                        app:boxBackgroundColor="@color/search_background"
+                        app:boxCornerRadiusTopStart="25dp"
+                        app:boxCornerRadiusTopEnd="25dp"
+                        app:boxCornerRadiusBottomStart="25dp"
+                        app:boxCornerRadiusBottomEnd="25dp"
+                        app:startIconDrawable="@drawable/ic_search_modern"
+                        app:startIconTint="@color/primary_gradient_start"
+                        app:hintTextColor="@color/text_hint">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDiner"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Dîner"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="20dp"
-                android:layout_marginEnd="8dp" />
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Rechercher un plat délicieux..."
+                            android:inputType="text"
+                            android:imeOptions="actionSearch"
+                            android:maxLines="1"
+                            android:textSize="16sp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnCollation"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Collation"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="20dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <!-- Category Filters -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Catégories"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/text_primary"
+                        android:layout_marginBottom="12dp" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnAll"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="🍽️ Tous"
+                                android:textSize="14sp"
+                                android:backgroundTint="@color/primary_gradient_start"
+                                android:textColor="@android:color/white"
+                                app:cornerRadius="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:paddingHorizontal="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnPetitDejeuner"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="🥐 Petit-déj"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_gradient_start"
+                                app:strokeColor="@color/primary_gradient_start"
+                                app:cornerRadius="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:paddingHorizontal="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnDejeuner"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="🥗 Déjeuner"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_gradient_start"
+                                app:strokeColor="@color/primary_gradient_start"
+                                app:cornerRadius="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:paddingHorizontal="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnDiner"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="🍲 Dîner"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_gradient_start"
+                                app:strokeColor="@color/primary_gradient_start"
+                                app:cornerRadius="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:paddingHorizontal="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnCollation"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="🍎 Collation"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_gradient_start"
+                                app:strokeColor="@color/primary_gradient_start"
+                                app:cornerRadius="20dp"
+                                android:layout_marginEnd="8dp"
+                                android:paddingHorizontal="16dp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnFavorites"
+                                style="@style/Widget.Material3.Button.OutlinedButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="40dp"
+                                android:text="💖 Favoris"
+                                android:textSize="14sp"
+                                android:textColor="@color/primary_gradient_start"
+                                app:strokeColor="@color/primary_gradient_start"
+                                app:cornerRadius="20dp"
+                                android:paddingHorizontal="16dp" />
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Special Offers Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Plats Recommandés"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Voir tout"
+                    android:textSize="14sp"
+                    android:textColor="@color/primary_gradient_start"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp" />
+
+            </LinearLayout>
+
+            <!-- RecyclerView for Plats -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPlats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingBottom="16dp"
+                tools:listitem="@layout/item_plat_modern" />
+
         </LinearLayout>
-    </HorizontalScrollView>
 
-    <!-- RecyclerView for Plats -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPlats"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:clipToPadding="false"
-        app:layout_constraintTop_toBottomOf="@id/filtersScroll"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.core.widget.NestedScrollView>
 
-    <!-- Progress Bar -->
+    <!-- Loading indicator -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:visibility="gone"
-        android:indeterminateTint="@color/organic_primary"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:indeterminateTint="@color/primary_gradient_start" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Empty state -->
+    <LinearLayout
+        android:id="@+id/layoutEmpty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🍽️"
+            android:textSize="64sp"
+            android:layout_marginBottom="16dp"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aucun plat trouvé"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Essayez de modifier vos filtres de recherche"
+            android:textSize="16sp"
+            android:textColor="@color/text_secondary"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="50dp"
+    android:height="50dp"
+    android:viewportWidth="50"
+    android:viewportHeight="50">
+    
+    <!-- Pear shape -->
+    <path
+        android:fillColor="#FFF9C4"
+        android:pathData="M25,5 C20,5 15,10 15,18 C15,25 12,30 12,35 C12,42 18,45 25,45 C32,45 38,42 38,35 C38,30 35,25 35,18 C35,10 30,5 25,5 Z" />
+    
+    <!-- Highlight -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M22,8 C20,8 18,10 18,15 C18,20 20,25 22,30"
+        android:strokeWidth="2"
+        android:strokeColor="#FFFFFF" />
+        
+</vector>

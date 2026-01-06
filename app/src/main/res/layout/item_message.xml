@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="4dp">
+
+    <!-- Message Container -->
+    <LinearLayout
+        android:id="@+id/messageContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Author Name -->
+        <TextView
+            android:id="@+id/textAuteur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="4dp"
+            tools:text="John Doe" />
+
+        <!-- Message Bubble -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start">
+
+            <!-- Message Content -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="60dp"
+                android:orientation="vertical">
+
+                <!-- Message Bubble Background -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="1dp"
+                    app:cardBackgroundColor="#F0F0F0">
+
+                    <TextView
+                        android:id="@+id/textContenu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="12dp"
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:lineSpacingExtra="2dp"
+                        android:maxWidth="280dp"
+                        tools:text="Hello, this is a sample message that can be quite long and will wrap to multiple lines." />
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Time and Status -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginStart="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/textDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="11sp"
+                        android:textColor="#999999"
+                        tools:text="9:25 AM" />
+
+                    <TextView
+                        android:id="@+id/textModified"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" • modifié"
+                        android:textSize="11sp"
+                        android:textColor="#999999"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Actions Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp">
+
+            <!-- Like Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp">
+
+                <ImageButton
+                    android:id="@+id/buttonLike"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_heart_outline"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="J'aime" />
+
+                <TextView
+                    android:id="@+id/textLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginStart="4dp"
+                    tools:text="5" />
+
+            </LinearLayout>
+
+            <!-- Reply Button -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:layout_marginStart="8dp">
+
+                <ImageButton
+                    android:id="@+id/buttonReply"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_reply"
+                    android:background="@android:color/transparent"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="Répondre" />
+
+                <TextView
+                    android:id="@+id/textReplies"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginStart="4dp"
+                    tools:text="2" />
+
+            </LinearLayout>
+
+            <!-- Menu Button -->
+            <ImageButton
+                android:id="@+id/buttonMenu"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_more_vert"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Menu"
+                android:visibility="gone"
+                android:layout_marginStart="8dp" />
+
+            <!-- Spacer -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <!-- View Replies Button -->
+            <TextView
+                android:id="@+id/buttonViewReplies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voir réponses"
+                android:textSize="12sp"
+                android:textColor="@color/organic_primary"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

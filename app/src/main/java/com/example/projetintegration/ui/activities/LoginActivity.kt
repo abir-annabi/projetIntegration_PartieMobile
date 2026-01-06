@@ -54,6 +54,9 @@ class LoginActivity : AppCompatActivity() {
         
         viewModel.loginResult.observe(this) { result ->
             result.onSuccess { response ->
+                android.util.Log.d("LoginActivity", "Login réussi - Token: ${response.token.take(20)}...")
+                android.util.Log.d("LoginActivity", "UserId: ${response.userId}, Email: ${response.adresseEmail}")
+                
                 preferencesManager.saveAuthData(
                     response.token,
                     response.userId,
@@ -61,10 +64,16 @@ class LoginActivity : AppCompatActivity() {
                     response.nom,
                     response.prenom
                 )
+                
+                // Vérifier que le token est bien sauvegardé
+                val savedToken = preferencesManager.getToken()
+                android.util.Log.d("LoginActivity", "Token sauvegardé: ${savedToken?.take(20)}...")
+                
                 Toast.makeText(this, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
                 navigateToDashboard()
             }
             result.onFailure { exception ->
+                android.util.Log.e("LoginActivity", "Erreur login: ${exception.message}", exception)
                 Toast.makeText(this, exception.message, Toast.LENGTH_LONG).show()
             }
         }

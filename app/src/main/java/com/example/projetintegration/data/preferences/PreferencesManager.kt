@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 
 class PreferencesManager(context: Context) {
-    
+    //Elle permet de sauvegarder, récupérer et supprimer les informations de connexion pour que l’utilisateur reste connecté même après avoir fermé l’application.
     private val sharedPreferences: SharedPreferences = 
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     

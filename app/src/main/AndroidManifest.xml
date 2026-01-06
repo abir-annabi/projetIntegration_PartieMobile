@@ -19,6 +19,10 @@
         
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,6 +62,50 @@
         
         <activity
             android:name=".ui.activities.MesProgrammesActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.ProfileActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.EditProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        
+        <activity
+            android:name=".ui.activities.StatistiquesActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.MonProgrammeDetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        
+        <activity
+            android:name=".ui.activities.ChatBotConversationsActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.ChatBotActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        
+        <activity
+            android:name=".ui.activities.DiagnosticActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.MessageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        
+        <activity
+            android:name=".ui.activities.NavigationActivity"
+            android:exported="false" />
+        
+        <activity
+            android:name=".ui.activities.HomeDashboardActivity"
             android:exported="false" />
     </application>
 

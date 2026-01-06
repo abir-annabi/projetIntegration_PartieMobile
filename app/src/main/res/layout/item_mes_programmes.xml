@@ -14,15 +14,46 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- Nom -->
-        <TextView
-            android:id="@+id/tvNom"
+        <!-- Header avec nom et boutons d'action -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Programme Nom"
-            android:textColor="@color/organic_text_primary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Nom -->
+            <TextView
+                android:id="@+id/tvNom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Programme Nom"
+                android:textColor="@color/organic_text_primary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <!-- Bouton Favori -->
+            <ImageButton
+                android:id="@+id/btnFavorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Ajouter aux favoris"
+                android:padding="8dp"
+                android:src="@drawable/ic_heart_outline" />
+
+            <!-- Bouton Supprimer -->
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Supprimer le programme"
+                android:padding="8dp"
+                android:src="@drawable/ic_delete" />
+
+        </LinearLayout>
 
         <!-- Dates -->
         <TextView
@@ -54,6 +85,16 @@
             android:textStyle="bold"
             android:padding="8dp"
             android:layout_marginTop="12dp" />
+
+        <!-- Poids -->
+        <TextView
+            android:id="@+id/tvPoids"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/organic_text_secondary"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
 
         <!-- Progression -->
         <TextView
@@ -93,36 +134,14 @@
                 android:layout_marginStart="12dp" />
         </LinearLayout>
 
-        <!-- Progression Controls -->
-        <LinearLayout
+        <!-- Note: La progression est calculée automatiquement par le backend -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="12dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPlus10"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="+10%"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="8dp"
-                android:layout_marginEnd="8dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPlus25"
-                style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                android:layout_weight="1"
-                android:text="+25%"
-                android:textColor="@color/organic_primary"
-                app:strokeColor="@color/organic_primary"
-                app:cornerRadius="8dp"
-                android:layout_marginStart="8dp" />
-        </LinearLayout>
+            android:text="💡 La progression est calculée automatiquement selon vos repas, activités et poids enregistrés"
+            android:textColor="@color/organic_text_secondary"
+            android:textSize="11sp"
+            android:textStyle="italic"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

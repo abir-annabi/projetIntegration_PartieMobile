@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bio_background">
+
+    <!-- Main Content -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Header Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="30dp">
+
+                <!-- Logo Section -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_heart_filled"
+                        android:tint="@color/bio_green"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ORGANIC"
+                        android:textColor="@color/bio_green"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginEnd="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="FOOD"
+                        android:textColor="@color/bio_green"
+                        android:textSize="12sp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Menu Button -->
+                <ImageView
+                    android:id="@+id/ivMenu"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_more_vert"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="4dp"
+                    android:tint="@color/bio_green" />
+
+            </LinearLayout>
+
+            <!-- Main Title Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="40dp">
+
+                <!-- Decorative Leaves -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <!-- BIO Text with Leaf -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tvBio"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="BIO"
+                            android:textColor="@color/bio_green"
+                            android:textSize="72sp"
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <!-- Leaf decoration on BIO -->
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/leaf_decoration"
+                            android:layout_marginStart="-20dp"
+                            android:layout_marginTop="-30dp" />
+
+                    </LinearLayout>
+
+                    <!-- Floating leaves -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/leaf_decoration"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="50dp"
+                        android:rotation="45" />
+
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/leaf_decoration"
+                        android:layout_gravity="bottom|start"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginBottom="-10dp"
+                        android:rotation="-30" />
+
+                </FrameLayout>
+
+                <!-- "food" text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="food"
+                    android:textColor="@color/bio_orange"
+                    android:textSize="48sp"
+                    android:textStyle="normal"
+                    android:fontFamily="serif"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginBottom="20dp" />
+
+                <!-- Description -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                    android:textColor="@color/bio_text_secondary"
+                    android:textSize="14sp"
+                    android:lineSpacingExtra="4dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="40dp" />
+
+            </LinearLayout>
+
+            <!-- Fruits and Smoothie Section -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="40dp">
+
+                <!-- White circular background -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="140dp"
+                    app:cardElevation="8dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <!-- Fruits arrangement -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <!-- Center fruits -->
+                        <ImageView
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/kiwi_slice"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="-40dp" />
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/pear_half"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-60dp"
+                            android:layout_marginTop="-20dp" />
+
+                        <ImageView
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:src="@drawable/apple_slice"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="50dp"
+                            android:layout_marginTop="10dp" />
+
+                        <!-- Scattered fruits -->
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/grape_green"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-80dp"
+                            android:layout_marginTop="40dp" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/kiwi_slice"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="70dp"
+                            android:layout_marginTop="-50dp" />
+
+                        <!-- Leaves scattered -->
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/leaf_decoration"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="-40dp"
+                            android:layout_marginTop="60dp"
+                            android:rotation="20" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/leaf_decoration"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="90dp"
+                            android:layout_marginTop="20dp"
+                            android:rotation="-45" />
+
+                    </FrameLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Smoothie bottle -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardCornerRadius="40dp"
+                    app:cardElevation="12dp"
+                    app:cardBackgroundColor="@color/bio_smoothie_green">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="8dp">
+
+                        <View
+                            android:layout_width="60dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/smoothie_gradient"
+                            android:layout_marginBottom="8dp" />
+
+                        <View
+                            android:layout_width="20dp"
+                            android:layout_height="4dp"
+                            android:background="@color/bio_smoothie_cap"
+                            android:layout_marginBottom="4dp" />
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <!-- Action arrows -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginEnd="120dp"
+                    android:layout_marginBottom="60dp"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_arrow_up_right"
+                        android:tint="@color/bio_green"
+                        android:layout_marginBottom="8dp" />
+
+                    <ImageView
+                        android:id="@+id/ivRefresh"
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:src="@drawable/ic_refresh"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:padding="2dp"
+                        android:tint="@color/bio_green" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!-- Bottom Info Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="20dp">
+
+                <!-- Social Icons -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_circle"
+                        android:background="@drawable/circle_social_bg"
+                        android:padding="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:tint="@color/bio_green" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_circle"
+                        android:background="@drawable/circle_social_bg"
+                        android:padding="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:tint="@color/bio_green" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_circle"
+                        android:background="@drawable/circle_social_bg"
+                        android:padding="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:tint="@color/bio_green" />
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_circle"
+                        android:background="@drawable/circle_social_bg"
+                        android:padding="8dp"
+                        android:tint="@color/bio_green" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Contact Info -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="end">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="biofood.com"
+                        android:textColor="@color/bio_text_secondary"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+33 7 86 57 14 23"
+                        android:textColor="@color/bio_text_secondary"
+                        android:textSize="12sp"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="20dp"
+        android:src="@drawable/ic_more_vert"
+        app:backgroundTint="@color/bio_green"
+        app:tint="@android:color/white"
+        app:elevation="8dp" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

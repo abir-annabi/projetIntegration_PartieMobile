@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="45dp"
+    android:height="45dp"
+    android:viewportWidth="45"
+    android:viewportHeight="45">
+    
+    <!-- Apple slice -->
+    <path
+        android:fillColor="#FFEB3B"
+        android:pathData="M22.5,5 C15,5 10,12 10,20 C10,28 15,35 22.5,35 C30,35 35,28 35,20 C35,12 30,5 22.5,5 Z" />
+    
+    <!-- Seeds -->
+    <path
+        android:fillColor="#8D6E63"
+        android:pathData="M18,16 C18,14.9 18.9,14 20,14 C21.1,14 22,14.9 22,16 L22,24 C22,25.1 21.1,26 20,26 C18.9,26 18,25.1 18,24 Z" />
+    <path
+        android:fillColor="#8D6E63"
+        android:pathData="M23,16 C23,14.9 23.9,14 25,14 C26.1,14 27,14.9 27,16 L27,24 C27,25.1 26.1,26 25,26 C23.9,26 23,25.1 23,24 Z" />
+        
+</vector>

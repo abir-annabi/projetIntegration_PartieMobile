@@ -2,15 +2,20 @@ package com.example.projetintegration.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.projetintegration.R
 import com.example.projetintegration.data.preferences.PreferencesManager
 import com.example.projetintegration.databinding.ActivityDashboardBinding
+import com.example.projetintegration.ui.viewmodel.OllamaViewModel
 
 class DashboardActivity : AppCompatActivity() {
-    
+    //home
     private lateinit var binding: ActivityDashboardBinding
     private lateinit var preferencesManager: PreferencesManager
+    private val ollamaViewModel: OllamaViewModel by viewModels()
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +32,8 @@ class DashboardActivity : AppCompatActivity() {
         
         setupUserInfo()
         setupClickListeners()
+        
+        // Vérifier le statut Ollama au démarrage - REMOVED
     }
     
     private fun setupUserInfo() {
@@ -59,7 +66,24 @@ class DashboardActivity : AppCompatActivity() {
         binding.cardMesProgrammes.setOnClickListener {
             startActivity(Intent(this, MesProgrammesActivity::class.java))
         }
+        
+        // Navigation vers le profil
+        binding.cardProfile.setOnClickListener {
+            startActivity(Intent(this, ProfileActivity::class.java))
+        }
+        
+        // Navigation vers le chatbot
+        binding.cardChatbot.setOnClickListener {
+            startActivity(Intent(this, ChatBotConversationsActivity::class.java))
+        }
+        
+        // Navigation vers la communauté
+        binding.cardCommunity.setOnClickListener {
+            startActivity(Intent(this, MessageActivity::class.java))
+        }
     }
+    
+    // Ollama observers and methods - REMOVED
     
     private fun navigateToLogin() {
         startActivity(Intent(this, LoginActivity::class.java))
