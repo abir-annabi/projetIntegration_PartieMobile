@@ -86,6 +86,12 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
             binding.tvDuree.text = "Durée: ${userProgramme.programme.dureeJours} jours"
             binding.tvObjectif.text = "Objectif: ${userProgramme.programme.objectif}"
             
+            // ✅ CORRECTION USER: Initialiser la progression à 0% au début
+            binding.progressBar.progress = 0
+            binding.tvProgression.text = "0%"
+            
+            android.util.Log.d("MonProgrammeDetail", "✅ Progression initialisée à 0% comme demandé par l'utilisateur")
+            
             // Vérifier le statut du programme
             // ✅ DIAGNOSTIC: Afficher les informations du programme
         android.util.Log.d("MonProgrammeDetail", "=== INFORMATIONS PROGRAMME ===")
@@ -142,17 +148,6 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
                 }
             }
             
-            // Poids
-            userProgramme.poidsDebut?.let { debut ->
-                binding.tvPoidsDebut.text = "Début: ${debut}kg"
-            }
-            userProgramme.poidsActuel?.let { actuel ->
-                binding.tvPoidsActuel.text = "Actuel: ${actuel}kg"
-            }
-            userProgramme.poidsObjectif?.let { objectif ->
-                binding.tvPoidsObjectif.text = "Objectif: ${objectif}kg"
-            }
-            
             // 🔧 PROTECTION CONTRE NULL - Le backend peut retourner null
             val plats = userProgramme.programme.plats ?: emptyList()
             val activites = userProgramme.programme.activites ?: emptyList()
@@ -182,21 +177,17 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
                     val activitesRealisesIds = progression.activitesRealisees?.map { it.id } ?: emptyList()
                     activitesAdapter.setActivitesRealisees(activitesRealisesIds)
 
-                    // 🔧 PROTECTION: statutJour peut être null
-                    binding.tvStatutJour.text = formatStatutJour(progression.statutJour)
-
-                    // Afficher les calories
+                    // ✅ CORRECTION USER: Afficher seulement les plats et activités consommés
                     progression.caloriesConsommees?.let {
-                        binding.tvCalories.text = "Calories: ${it} kcal"
+                        binding.tvStatutJour.text = "${formatStatutJour(progression.statutJour)} • ${it} kcal"
                     } ?: run {
-                        binding.tvCalories.text = "Calories: 0 kcal"
+                        binding.tvStatutJour.text = formatStatutJour(progression.statutJour)
                     }
                 } else {
                     // Réinitialiser les sélections
                     platsAdapter.setPlatsConsommes(emptyList())
                     activitesAdapter.setActivitesRealisees(emptyList())
                     binding.tvStatutJour.text = "❌ Aucune activité enregistrée"
-                    binding.tvCalories.text = "Calories: 0 kcal"
                 }
             } catch (e: Exception) {
                 android.util.Log.e("MonProgrammeDetail", "Erreur lors de l'affichage de la progression", e)
@@ -205,27 +196,27 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
                 platsAdapter.setPlatsConsommes(emptyList())
                 activitesAdapter.setActivitesRealisees(emptyList())
                 binding.tvStatutJour.text = "⚠️ Erreur de chargement"
-                binding.tvCalories.text = "Calories: 0 kcal"
                 
                 Toast.makeText(this, "Erreur lors du chargement de la progression", Toast.LENGTH_SHORT).show()
             }
         }
         viewModel.statistiques.observe(this) { stats ->
             stats?.let {
-                // ✅ NOUVELLE LOGIQUE SIMPLE: Affichage direct de la progression backend
+                // ✅ CORRECTION USER: Synchroniser avec MesProgrammesActivity
+                // Utiliser la même logique simple que dans MesProgrammesAdapter
                 binding.progressBar.progress = it.progressionGlobale
                 binding.tvProgression.text = "${it.progressionGlobale}%"
                 
-                android.util.Log.d("MonProgrammeDetail", "=== PROGRESSION SIMPLE ===")
+                android.util.Log.d("MonProgrammeDetail", "=== PROGRESSION SYNCHRONISÉE ===")
                 android.util.Log.d("MonProgrammeDetail", "Progression: ${it.progressionGlobale}%")
+                android.util.Log.d("MonProgrammeDetail", "Synchronisé avec MesProgrammesActivity")
                 android.util.Log.d("MonProgrammeDetail", "Formule: Éléments terminés/attendus")
-                android.util.Log.d("MonProgrammeDetail", "========================")
-                
-                // Afficher les informations complémentaires si disponibles
-                binding.tvTauxCompletion.text = "Jour: ${it.jourActuel}/${it.joursTotal}"
-                binding.tvTauxRepas.text = "Plats: ${it.totalPlatsConsommes ?: 0} consommés"
-                binding.tvTauxActivites.text = "Activités: ${it.totalActivitesRealisees ?: 0} réalisées"
-                binding.tvStreak.text = "🔥 Série: ${it.streakActuel} jours"
+                android.util.Log.d("MonProgrammeDetail", "===============================")
+            } ?: run {
+                // ✅ CORRECTION USER: Si pas de statistiques, garder à 0%
+                binding.progressBar.progress = 0
+                binding.tvProgression.text = "0%"
+                android.util.Log.d("MonProgrammeDetail", "✅ Statistiques non disponibles - Progression maintenue à 0%")
             }
         }
         
@@ -290,15 +281,6 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
             showDatePicker()
         }
         
-        binding.btnEnregistrerPoids.setOnClickListener {
-            showEnregistrerPoidsDialog()
-        }
-        
-        binding.btnVoirStatistiques.setOnClickListener {
-            // TODO: Ouvrir StatistiquesActivity
-            Toast.makeText(this, "Statistiques détaillées", Toast.LENGTH_SHORT).show()
-        }
-        
         // ✅ BOUTON PRINCIPAL: Enregistrer ma journée
         binding.btnEnregistrerJournee.setOnClickListener {
             enregistrerJourneeComplete()
@@ -353,7 +335,6 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
         platsAdapter.setPlatsConsommes(emptyList())
         activitesAdapter.setActivitesRealisees(emptyList())
         binding.tvStatutJour.text = "⏳ Chargement..."
-        binding.tvCalories.text = "Calories: 0 kcal"
         
         // ✅ BACKEND SIMPLIFIÉ: Plus de validation de dates complexe
         // Le backend accepte maintenant toutes les dates sans restriction
@@ -456,47 +437,6 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
         viewModel.enregistrerProgressionComplete(request)
     }
     
-    private fun showEnregistrerPoidsDialog() {
-        // ✅ VALIDATION: Vérifier que le programme est actif
-        val userProgramme = viewModel.userProgramme.value
-        if (userProgramme == null) {
-            Toast.makeText(this, "Programme non chargé", Toast.LENGTH_SHORT).show()
-            return
-        }
-        
-        if (userProgramme.statut.uppercase() != "EN_COURS") {
-            Toast.makeText(this, "Programme non actif", Toast.LENGTH_SHORT).show()
-            return
-        }
-        
-        // ✅ BACKEND SIMPLIFIÉ: Plus de validation de dates complexe
-        // Le backend accepte maintenant toutes les dates sans restriction
-        android.util.Log.d("MonProgrammeDetail", "✅ Enregistrement poids autorisé - backend accepte toutes les dates")
-        
-        val builder = AlertDialog.Builder(this)
-        val input = android.widget.EditText(this)
-        input.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
-        input.hint = "Poids (kg)"
-        
-        builder.setTitle("Enregistrer le poids")
-            .setView(input)
-            .setPositiveButton("Enregistrer") { _, _ ->
-                val poidsStr = input.text.toString()
-                if (poidsStr.isNotEmpty()) {
-                    val poids = poidsStr.toDoubleOrNull()
-                    if (poids != null && poids > 0) {
-                        val dateStr = dateFormat.format(currentDate.time)
-                        android.util.Log.d("MonProgrammeDetail", "📤 Enregistrement poids pour date: $dateStr, poids: $poids")
-                        viewModel.enregistrerPoidsSeul(dateStr, poids)
-                    } else {
-                        Toast.makeText(this, "Poids invalide", Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-            .setNegativeButton("Annuler", null)
-            .show()
-    }
-
     private fun formatStatutJour(statut: String?): String {
         return when (statut?.uppercase()) {
             "COMPLETE" -> "✅ Journée complète"
@@ -521,15 +461,14 @@ class MonProgrammeDetailActivity : AppCompatActivity() {
             ?.filter { activiteIds.contains(it.id) }
             ?.sumOf { it.caloriesBrulees } ?: 0
         
-        // Mettre à jour l'affichage
-        binding.tvCalories.text = "📊 ${caloriesConsommees} kcal consommées | ${caloriesBrulees} kcal brûlées"
-        
         // Mettre à jour le statut temporaire
         val statutTemp = when {
             platIds.isEmpty() && activiteIds.isEmpty() -> "❌ Aucune sélection"
-            platIds.isNotEmpty() && activiteIds.isNotEmpty() -> "✅ Journée complète (non sauvée)"
-            else -> "⚠️ Journée partielle (non sauvée)"
+            platIds.isNotEmpty() && activiteIds.isNotEmpty() -> "✅ Journée complète (non sauvée) • ${caloriesConsommees} kcal consommées | ${caloriesBrulees} kcal brûlées"
+            else -> "⚠️ Journée partielle (non sauvée) • ${caloriesConsommees} kcal consommées | ${caloriesBrulees} kcal brûlées"
         }
+        
+        binding.tvStatutJour.text = statutTemp
         
         // Changer la couleur du bouton selon l'état
         if (platIds.isNotEmpty() || activiteIds.isNotEmpty()) {

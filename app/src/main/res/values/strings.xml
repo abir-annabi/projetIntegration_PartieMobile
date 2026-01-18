@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FitLife</string>
+    <string name="app_name">HealthEra</string>
     
     <!-- Login Screen -->
     <string name="login_title">Bienvenue</string>
@@ -12,7 +12,7 @@
     
     <!-- Signup Screen -->
     <string name="signup_title">Créer un compte</string>
-    <string name="signup_subtitle">Rejoignez la communauté FitLife</string>
+    <string name="signup_subtitle">Rejoignez la communauté HealthEra</string>
     <string name="nom_hint">Nom</string>
     <string name="prenom_hint">Prénom</string>
     <string name="phone_hint">Numéro de téléphone</string>
@@ -24,7 +24,7 @@
     <!-- Validation Messages -->
     <string name="error_empty_field">Ce champ est obligatoire</string>
     <string name="error_invalid_email">Email invalide</string>
-    <string name="error_invalid_phone">Numéro de téléphone invalide (format: 06XXXXXXXX)</string>
+    <string name="error_invalid_phone">Numéro de téléphone invalide (8 chiffres requis)</string>
     <string name="error_password_short">Le mot de passe doit contenir au moins 6 caractères</string>
     <string name="error_invalid_date">Date de naissance invalide</string>
     <string name="error_future_date">La date de naissance doit être dans le passé</string>

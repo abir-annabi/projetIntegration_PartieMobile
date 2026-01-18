@@ -111,7 +111,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Progression Globale"
+                    android:text="Progression"
                     android:textColor="@color/organic_primary"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -131,117 +131,19 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:max="100"
-                        android:progress="62"
+                        android:progress="0"
                         android:progressTint="@color/organic_primary" />
 
                     <TextView
                         android:id="@+id/tvProgression"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="62%"
+                        android:text="0%"
                         android:textColor="@color/organic_primary"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginStart="12dp" />
                 </LinearLayout>
-
-                <!-- Stats Mini -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="12dp">
-
-                    <TextView
-                        android:id="@+id/tvTauxCompletion"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Complétion: 40%"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/tvTauxRepas"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Repas: 90%"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/tvTauxActivites"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Activités: 80%"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
-
-                    <TextView
-                        android:id="@+id/tvStreak"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="🔥 Série: 7 jours"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <!-- Poids -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="16dp">
-
-                    <TextView
-                        android:id="@+id/tvPoidsDebut"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Début: 85.5kg"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="12sp" />
-
-                    <TextView
-                        android:id="@+id/tvPoidsActuel"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Actuel: 82.3kg"
-                        android:textColor="@color/organic_primary"
-                        android:textSize="12sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvPoidsObjectif"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Objectif: 75.0kg"
-                        android:textColor="@color/organic_text_secondary"
-                        android:textSize="12sp" />
-                </LinearLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnVoirStatistiques"
-                    style="@style/Widget.Material3.Button.OutlinedButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Voir Statistiques Détaillées"
-                    android:textColor="@color/organic_primary"
-                    app:strokeColor="@color/organic_primary"
-                    app:cornerRadius="8dp"
-                    android:layout_marginTop="16dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -304,37 +206,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Calories & Poids -->
-        <LinearLayout
-            android:id="@+id/layoutStats"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/tvStatutJour"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <TextView
-                android:id="@+id/tvCalories"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Calories: 0 kcal"
-                android:textColor="@color/organic_text_secondary"
-                android:textSize="14sp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEnregistrerPoids"
-                style="@style/Widget.Material3.Button.TextButton.Icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⚖️ Poids"
-                android:textColor="@color/organic_primary" />
-        </LinearLayout>
-
         <!-- Plats Section -->
         <TextView
             android:id="@+id/tvPlatsTitle"
@@ -346,7 +217,7 @@
             android:textStyle="bold"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/layoutStats"
+            app:layout_constraintTop_toBottomOf="@id/tvStatutJour"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView

@@ -94,7 +94,7 @@ class SignupViewModel : ViewModel() {
             _phoneError.value = "Ce champ est obligatoire"
             isValid = false
         } else if (!ValidationUtils.isValidPhone(phone)) {
-            _phoneError.value = "Numéro de téléphone invalide (format: XXXXXXXX)"
+            _phoneError.value = "Numéro de téléphone invalide (8 chiffres requis)"
             isValid = false
         } else {
             _phoneError.value = null

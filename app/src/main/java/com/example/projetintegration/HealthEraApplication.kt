@@ -3,7 +3,7 @@ package com.example.projetintegration
 import android.app.Application
 import com.example.projetintegration.data.api.RetrofitClient
 
-class FitLifeApplication : Application() {
+class HealthEraApplication : Application() {
     
     override fun onCreate() {
         super.onCreate()

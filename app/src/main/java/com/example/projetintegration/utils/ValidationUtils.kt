@@ -11,8 +11,8 @@ object ValidationUtils {
     }
     
     fun isValidPhone(phone: String): Boolean {
-        // Format français: XXXXXXXX ou 0XXXXXXXXX (10 chiffres)
-        val phonePattern = "^0[1-9][0-9]{8}$".toRegex()
+        // Format simplifié: exactement 8 chiffres
+        val phonePattern = "^[0-9]{8}$".toRegex()
         return phone.matches(phonePattern)
     }
     

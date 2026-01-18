@@ -220,43 +220,4 @@ class MonProgrammeDetailViewModel : ViewModel() {
             }
         }
     }
-    
-    // Enregistrer le poids séparément (optionnel)
-    fun enregistrerPoidsSeul(date: String, poids: Double) {
-        _isLoading.value = true
-        
-        viewModelScope.launch {
-            // ✅ CORRECTION: Ajouter l'ID du programme actuel à la requête
-            val currentUserProgramme = _userProgramme.value
-            val request = com.example.projetintegration.data.models.EnregistrerProgressionRequest(
-                date = date,
-                platIds = null,
-                activiteIds = null,
-                poidsJour = poids,
-                notes = null,
-                userProgrammeId = currentUserProgramme?.id // ✅ NOUVEAU: ID du programme
-            )
-            
-            val result = repository.enregistrerProgression(request)
-            _isLoading.value = false
-            
-            result.onSuccess { progressionEnregistree ->
-                android.util.Log.d("MonProgrammeDetailViewModel", "✅ Enregistrement poids réussi - rechargement automatique")
-                
-                _ajoutSuccess.value = true
-                
-                // ✅ CORRECTION: Recharger AUTOMATIQUEMENT la progression du jour
-                android.util.Log.d("MonProgrammeDetailViewModel", "🔄 Rechargement automatique progression pour: $date")
-                loadProgressionJour(date)
-                
-                // ✅ CORRECTION: Recharger les statistiques après enregistrement du poids
-                android.util.Log.d("MonProgrammeDetailViewModel", "🔄 Rechargement automatique des statistiques")
-                loadStatistiques()
-            }.onFailure { exception ->
-                android.util.Log.e("MonProgrammeDetailViewModel", "❌ Erreur enregistrement poids: ${exception.message}")
-                _error.value = exception.message ?: "Erreur lors de l'enregistrement du poids"
-                _ajoutSuccess.value = false
-            }
-        }
-    }
 }
